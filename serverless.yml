@@ -5,7 +5,7 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: us-east-1
-  profile: oren
+  #profile: oren
   environment:
     TELEGRAM_TOKEN: ${env:TELEGRAM_TOKEN}
     PLOTLY_TOKEN: ${env:PLOTLY_TOKEN}

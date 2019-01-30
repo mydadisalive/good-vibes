@@ -63,7 +63,7 @@ async function feelGoodMessage(chatId) {
       ],
     }),
   };
-  await bot.sendMessage(chatId, 'How you doing?', keyboard);
+  await bot.sendMessage(chatId, 'How you doing? (0 ok, 1 good, 2 very good, 3 amazing!, -1 not so well, -2 bad, -3 very bad)', keyboard);
 }
 
 async function createReport(chatId) {
@@ -97,7 +97,9 @@ app.get('/get-message', async (req, res) => {
   const cursor = db.collection('users').find({ status: 'on' });
   for (let user = await cursor.next(); user != null; user = await cursor.next()) {
     console.log(`Sending message to ${user.firstName}`);
-    await feelGoodMessage(user._id);
+    if (user._id == 184823763) { // avicii id
+    	await feelGoodMessage(user._id);
+    }
   }
   res.send('get Hello World!');
 });
